@@ -39,13 +39,10 @@ jobs:
           gradle-version: '8.9'
 
       - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
         with:
-          accept-android-sdk-licenses: 'true'
-          log-accepted-android-sdk-licenses: 'false'
+          packages: 'platform-tools'
 
-      - name: Accept Android SDK licenses
-        run: yes | sdkmanager --licenses
 
       - name: Build APK
         run: gradle -p "$PROJECT_DIR" assembleDebug
